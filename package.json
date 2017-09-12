@@ -1,22 +1,54 @@
 {
-  "name": "electron-quick-start",
+  "name": "electron-mern-app",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "NODE_ENV=DEV concurrently \"nodemon server.js\" \"sleep 2 && electron .\"",
+    "start-electron": "electron .",
+    "start-server": "nodemon server.js",
+    "bundle": "webpack",
+    "watch": "NODE_ENV=DEV nodemon server.js",
+    "start:prod": "webpack && electron ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
+    "mern",
     "demo"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Jennifer Nelson",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.0",
+    "express": "^4.15.4",
+    "foreman": "^2.0.0",
+    "install": "^0.10.1",
+    "marked": "^0.3.6",
+    "material-ui": "^0.19.1",
+    "mongoose": "^4.11.11",
+    "nodemon": "^1.12.0",
+    "npm": "^5.4.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.13"
+  },
   "devDependencies": {
-    "electron": "~1.6.2"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "concurrently": "^3.5.0",
+    "css-loader": "^0.28.7",
+    "electron": "~1.6.2",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.6",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.19.1"
   }
 }
