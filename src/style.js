@@ -3,7 +3,7 @@ const style = {
     body: {
         fontFamily: 'Roboto'
     },
-    commentBox: {
+    todoBoard: {
         width:'80vw',
         margin:'0 auto',
         fontFamily:'Helvetica, sans-serif'
@@ -12,25 +12,25 @@ const style = {
         textAlign:'center',
         textTransform:'uppercase'
     },
-    commentList: {
+    todoList: {
         border:'1px solid #f1f1f1',
         padding:'0 12px',
         maxHeight:'70vh',
         overflow:'scroll'
     },
-    comment: {
+    todo: {
         backgroundColor:'#fafafa',
         margin:'10px',
         padding:'3px 10px',
         fontSize:'.85rem'
     },
-    commentForm: {
+    todoForm: {
         margin:'10px',
         display:'flex',
         flexFlow:'row wrap',
         justifyContent:'space-between'
     },
-    commentFormAuthor: {
+    todoFormTitle: {
         minWidth:'150px',
         margin:'3px',
         padding:'0 10px',
@@ -38,7 +38,7 @@ const style = {
         height:'40px',
         flex:'2'
     },
-    commentFormText: {
+    todoFormDescription: {
         flex:'4',
         minWidth:'400px',
         margin:'3px',
@@ -46,7 +46,13 @@ const style = {
         height:'40px',
         borderRadius:'3px'
     },
-    commentFormPost: {
+    todoFormCompleted: {
+        margin:'3px',
+        padding:'0 10px',
+        height:'40px',
+        flex:'2'
+    },
+    todoFormPost: {
         minWidth:'75px',
         flex:'1',
         height:'40px',
@@ -60,6 +66,11 @@ const style = {
         border:'none'
     },
     updateLink: {
+        textDecoration:'none',
+        paddingRight:'15px',
+        fontSize:'.7rem'
+    },
+    markCompleteLink: {
         textDecoration:'none',
         paddingRight:'15px',
         fontSize:'.7rem'

@@ -10,15 +10,14 @@
 // }
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import CommentBox from './CommentBox';
+import TodoBoard from './todos/TodoBoard.component';
 
 export default class App extends React.Component {
     render() {
         return (
-            <CommentBox
-                url='http://localhost:8080/api/comments'
-                pollInterval={2000} />
+            <TodoBoard
+                url='http://localhost:8080/api/todos'
+                pollInterval={20000} />
         );
     }
 }

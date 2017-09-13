@@ -37,7 +37,7 @@ var config = require('./webpack.config');
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var Comment = require('./model/comments');
+var Todo = require('./model/todo');
 var app = express();
 var compiler = webpack(config);
 var router = express.Router();
@@ -68,7 +68,7 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-//and remove cacheing so we get the most recent comments
+//and remove cacheing so we get the most recent todos
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
@@ -76,57 +76,59 @@ app.use(function(req, res, next) {
 router.get('/', function(req, res) {
     res.json({ message: 'API Initialized!'});
 });
-//adding the /comments route to our /api router
-router.route('/comments')
-//retrieve all comments from the database
+//adding the /todos route to our /api router
+router.route('/todos')
+//retrieve all todos from the database
     .get(function(req, res) {
-        //looks at our Comment Schema
-        Comment.find(function(err, comments) {
+        //looks at our Todo Schema
+        Todo.find(function(err, todos) {
             if (err)
                 res.send(err);
-            //responds with a json object of our database comments.
-            res.json(comments)
+            //responds with a json object of our database todos.
+            res.json(todos)
         });
     })
-    //post new comment to the database
+    //post new todo to the database
     .post(function(req, res) {
-        var comment = new Comment();
+        var todo = new Todo();
         //body parser lets us use the req.body
-        comment.author = req.body.author;
-        comment.text = req.body.text;
-        comment.save(function(err) {
+        todo.title = req.body.title;
+        todo.description = req.body.description;
+        todo.completed = req.body.completed ? req.body.completed : false;
+        todo.save(function(err) {
             if (err)
                 res.send(err);
-            res.json({ message: 'Comment successfully added!' });
+            res.json({ message: 'To Do successfully added!' });
         });
     });
-//Adding a route to a specific comment based on the database ID
-router.route('/comments/:comment_id')
-//The put method gives us the chance to update our comment based on
+//Adding a route to a specific todos based on the database ID
+router.route('/todos/:todo_id')
+//The put method gives us the chance to update our todo based on
 //the ID passed to the route
     .put(function(req, res) {
-        Comment.findById(req.params.comment_id, function(err, comment) {
+        Todo.findById(req.params.todo_id, function(err, todo) {
             if (err)
                 res.send(err);
-            //setting the new author and text to whatever was changed. If
+            //setting the new title, description, completed to whatever was changed. If
             //nothing was changed we will not alter the field.
-            (req.body.author) ? comment.author = req.body.author : null;
-            (req.body.text) ? comment.text = req.body.text : null;
-            //save comment
-            comment.save(function(err) {
+            (req.body.title) ? todo.title = req.body.title : null;
+            (req.body.description) ? todo.description = req.body.description : null;
+            (req.body.completed) ? todo.completed = req.body.completed : completed;
+            //save todo
+            todo.save(function(err) {
                 if (err)
                     res.send(err);
-                res.json({ message: 'Comment has been updated' });
+                res.json({ message: 'ToDo has been updated' });
             });
         });
     })
-    //delete method for removing a comment from our database
+    //delete method for removing a todo from our database
     .delete(function(req, res) {
-        //selects the comment by its ID, then removes it.
-        Comment.remove({ _id: req.params.comment_id }, function(err, comment) {
+        //selects the todo by its ID, then removes it.
+        Todo.remove({ _id: req.params.todo_id }, function(err, todo) {
             if (err)
                 res.send(err);
-            res.json({ message: 'Comment has been deleted' })
+            res.json({ message: 'To Do has been deleted' })
         })
     });
 //Use our router configuration when we call /api
