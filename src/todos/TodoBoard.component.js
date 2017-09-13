@@ -4,6 +4,8 @@ import axios from 'axios';
 import TodoList from './TodoList.component';
 import TodoForm from './ToDoForm.component';
 import style from '../style';
+import Paper from 'material-ui/Paper';
+
 
 class TodoBoard extends Component {
     constructor(props) {
@@ -42,7 +44,7 @@ class TodoBoard extends Component {
     }
     handleTodoUpdate(id, todo) {
         console.log('getting ready to update:', todo);
-        //sends the to do id and new title/description/status to our api
+        //sends the to do id and new title/status to our api
         axios.put(`${this.props.url}/${id}`, todo)
             .catch(err => {
                 console.log(err);
@@ -54,14 +56,16 @@ class TodoBoard extends Component {
     }
     render() {
         return (
-            <div style={ style.todoBoard }>
-                <h2 style={ style.title }>To Dos:</h2>
-                <TodoList
-                    onTodoDelete={ this.handleTodoDelete }
-                    onTodoUpdate={ this.handleTodoUpdate }
-                    data={ this.state.data }/>
-                <TodoForm onTodoSubmit={ this.handleTodoSubmit }/>
-            </div>
+            <Paper zDepth={2}>
+                <div style={ style.todoBoard }>
+                    <h2 style={ style.title }>To Dos:</h2>
+                    <TodoList
+                        onTodoDelete={ this.handleTodoDelete }
+                        onTodoUpdate={ this.handleTodoUpdate }
+                        data={ this.state.data }/>
+                    <TodoForm onTodoSubmit={ this.handleTodoSubmit }/>
+                </div>
+            </Paper>
         )
     }
 }

@@ -2,6 +2,11 @@
 import React, { Component } from 'react';
 import Todo from './Todo.component';
 import style from '../style';
+import {
+    Table,
+    TableBody,
+} from 'material-ui/Table';
+
 
 class TodoList extends Component {
     render() {
@@ -14,17 +19,15 @@ class TodoList extends Component {
                         onTodoDelete={ this.props.onTodoDelete }
                         onTodoUpdate={ this.props.onTodoUpdate }
                         key={ todo['_id'] }>
-                            { todo.title }
-                            { todo.completed }
                     </Todo>
             )
         })
         return (
-            <table style={ style.todoList }>
-                <tbody>
+            <Table>
+                <TableBody>
                     { todoNodes }
-                </tbody>
-            </table>
+                </TableBody>
+            </Table>
 
         )
     }

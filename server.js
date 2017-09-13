@@ -93,7 +93,6 @@ router.route('/todos')
         var todo = new Todo();
         //body parser lets us use the req.body
         todo.title = req.body.title;
-        todo.description = req.body.description;
         todo.completed = req.body.completed ? req.body.completed : false;
         todo.save(function(err) {
             if (err)
@@ -109,10 +108,9 @@ router.route('/todos/:todo_id')
         Todo.findById(req.params.todo_id, function(err, todo) {
             if (err)
                 res.send(err);
-            //setting the new title, description, completed to whatever was changed. If
+            //setting the new title, completed to whatever was changed. If
             //nothing was changed we will not alter the field.
             (req.body.title) ? todo.title = req.body.title : null;
-            (req.body.description) ? todo.description = req.body.description : null;
             (req.body.completed) ? todo.completed = req.body.completed : completed;
             //save todo
             todo.save(function(err) {
