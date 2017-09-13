@@ -5,6 +5,9 @@ import style from '../style';
 import {
     Table,
     TableBody,
+    TableHeader,
+    TableRow,
+    TableHeaderColumn
 } from 'material-ui/Table';
 
 

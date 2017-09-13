@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import style from '../style';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import Checkbox from 'material-ui/Checkbox';
-import Paper from 'material-ui/Paper';
 
 class TodoForm extends Component {
     constructor(props) {

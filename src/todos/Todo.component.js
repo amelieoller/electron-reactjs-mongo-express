@@ -1,7 +1,8 @@
 //Todo.js
 import React, { Component } from 'react';
 import style from '../style';
-import marked from 'marked';
+import CheckBox from 'react-material-icons/icons/toggle/check-box';
+import CheckBoxOutline from 'react-material-icons/icons/toggle/check-box-outline-blank';
 import {
     TableRow,
     TableRowColumn,
@@ -63,20 +64,22 @@ class Todo extends Component {
         console.log('setting completed: ', e.target.checked );
         this.setState({ completed: e.target.checked });
     }
-    getCompletedText() {
-        console.log('this.props.completed=', this.props.completed);
-        var completed =  this.props.completed ?  'true' : 'false';
-        return completed;
-    }
 
     render() {
+        let checkbox = null;
+        if (this.props.completed) {
+            checkbox = <CheckBox></CheckBox>
+        } else {
+            checkbox =  <CheckBoxOutline></CheckBoxOutline>
+        }
         return (
             <TableRow>
                 <TableRowColumn>
                     { this.props.title }
                 </TableRowColumn>
-                <TableRowColumn>
-                    { this.getCompletedText() }
+                <TableRowColumn style={{textAlign: 'left'}}>
+                    {checkbox}
+
                 </TableRowColumn>
                 <TableRowColumn>
                     <a style={ style.updateLink } href='#' onClick={ this.updateTodo }>update</a>
@@ -90,11 +93,6 @@ class Todo extends Component {
                                 style={ style.todoFormTitle }
                                 value={ this.state.title }
                                 onChange= { this.handleTitleChange } />
-                            <input
-                                type='checkbox'
-                                style= { style.todoFormCompleted }
-                                checked={ this.state.completed }
-                                onChange={ this.handleStatusChange } />
                             <input
                                 type='submit'
                                 style={ style.todoFormPost }
