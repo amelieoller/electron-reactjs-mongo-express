@@ -1,9 +1,9 @@
 //TodoBoard.js
 import React, { Component } from 'react';
 import axios from 'axios';
-import TodoList from './TodoList.component';
-import TodoForm from './TodoForm.component';
-import style from '../style';
+import TodoList from './TodoList';
+import TodoForm from './TodoForm';
+import style from '../../style';
 import Paper from 'material-ui/Paper';
 
 

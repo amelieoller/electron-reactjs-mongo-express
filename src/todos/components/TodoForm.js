@@ -1,6 +1,6 @@
 //todoForm.js
 import React, { Component } from 'react';
-import style from '../style';
+import style from '../../style';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 

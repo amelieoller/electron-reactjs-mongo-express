@@ -1,7 +1,7 @@
 //TodoList.js
 import React, { Component } from 'react';
-import Todo from './Todo.component';
-import style from '../style';
+import Todo from './Todo';
+import style from '../../style';
 import {
     Table,
     TableBody,

@@ -1,6 +1,6 @@
 //Todo.js
 import React, { Component } from 'react';
-import style from '../style';
+import style from '../../style';
 import CheckBox from 'react-material-icons/icons/toggle/check-box';
 import CheckBoxOutline from 'react-material-icons/icons/toggle/check-box-outline-blank';
 import ModeEdit from 'react-material-icons/icons/editor/mode-edit';
