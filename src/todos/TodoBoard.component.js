@@ -58,7 +58,7 @@ class TodoBoard extends Component {
         return (
             <Paper zDepth={2}  style={ style.todoBoard }>
                 <div>
-                    <h2 style={ style.title }>To Dos:</h2>
+                    <h2 style={ style.title }>To Do:</h2>
                     <TodoList
                         onTodoDelete={ this.handleTodoDelete }
                         onTodoUpdate={ this.handleTodoUpdate }

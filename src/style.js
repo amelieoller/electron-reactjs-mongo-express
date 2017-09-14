@@ -13,7 +13,8 @@ const style = {
         fontFamily:'Helvetica, sans-serif'
     },
     title: {
-        textAlign:'center',
+        marginLeft: '50px',
+        textAlign:'left',
         textTransform:'uppercase'
     },
     todoList: {
