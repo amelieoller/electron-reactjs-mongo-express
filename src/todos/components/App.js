@@ -1,12 +1,12 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import TodoBoard from './todos/components/TodoBoard';
+import TodoBoard from './TodoBoard';
 
-export default class App extends React.Component {
+class App extends Component {
     render() {
         return (
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
@@ -17,3 +17,5 @@ export default class App extends React.Component {
         );
     }
 }
+
+export default App;

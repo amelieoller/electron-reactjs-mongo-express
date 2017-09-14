@@ -1,7 +1,7 @@
 //TodoBoard.js
 import React, { Component } from 'react';
 import axios from 'axios';
-import TodoList from './TodoList';
+import TodoListContainer from '../containers/TodoListContainer';
 import TodoForm from './TodoForm';
 import style from '../../style';
 import Paper from 'material-ui/Paper';
@@ -50,19 +50,12 @@ class TodoBoard extends Component {
                 console.log(err);
             })
     }
-    componentDidMount() {
-        this.loadTodosFromServer();
-        setInterval(this.loadTodosFromServer, this.props.pollInterval);
-    }
     render() {
         return (
             <Paper zDepth={2}  style={ style.todoBoard }>
                 <div>
                     <h2 style={ style.title }>To Do:</h2>
-                    <TodoList
-                        onTodoDelete={ this.handleTodoDelete }
-                        onTodoUpdate={ this.handleTodoUpdate }
-                        data={ this.state.data }/>
+                    <TodoListContainer />
                     <TodoForm onTodoSubmit={ this.handleTodoSubmit }/>
                 </div>
             </Paper>

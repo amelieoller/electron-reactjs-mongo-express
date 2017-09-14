@@ -12,17 +12,21 @@ import {
 
 
 class TodoList extends Component {
-    render() {
-        let todoNodes = this.props.data.map(todo => {
+    componentWillMount() {
+        console.log('this.props =', this.props);
+        this.props.fetchTodos();
+    }
+    renderTodos(todos) {
+        let todoNodes = todos.map(todo => {
             return (
-                    <Todo
-                        title={ todo.title }
-                        completed={ todo.completed }
-                        uniqueID={ todo['_id'] }
-                        onTodoDelete={ this.props.onTodoDelete }
-                        onTodoUpdate={ this.props.onTodoUpdate }
-                        key={ todo['_id'] }>
-                    </Todo>
+                <Todo
+                    title={ todo.title }
+                    completed={ todo.completed }
+                    uniqueID={ todo['_id'] }
+                    onTodoDelete={ this.props.onTodoDelete }
+                    onTodoUpdate={ this.props.onTodoUpdate }
+                    key={ todo['_id'] }>
+                </Todo>
             )
         })
         return (
@@ -31,8 +35,20 @@ class TodoList extends Component {
                     { todoNodes }
                 </TableBody>
             </Table>
-
         )
+    }
+    render() {
+        const { todos, loading, error } = this.props.todoList;
+
+        if(loading) {
+            return <div className="container"><h3>Loading To Do list...</h3></div>
+        } else if(error) {
+            return <div className="alert alert-danger">Error: {error.message}</div>
+        }
+
+        return (
+            this.renderTodos(todos)
+        );
     }
 }
 export default TodoList;
