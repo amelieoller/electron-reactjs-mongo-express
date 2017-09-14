@@ -3,6 +3,10 @@ const style = {
     body: {
         fontFamily: 'Roboto'
     },
+    todoBoard: {
+        margin: '50px',
+        paddingTop: '20px'
+    },
     todoTable: {
         width:'80vw',
         margin:'5px 0px 5px 20px',
