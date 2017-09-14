@@ -5,6 +5,7 @@ import CheckBox from 'react-material-icons/icons/toggle/check-box';
 import CheckBoxOutline from 'react-material-icons/icons/toggle/check-box-outline-blank';
 import ModeEdit from 'react-material-icons/icons/editor/mode-edit';
 import Delete from 'react-material-icons/icons/action/delete';
+import IconButton from 'material-ui/IconButton';
 import {
     TableRow,
     TableRowColumn,
@@ -75,15 +76,19 @@ class Todo extends Component {
     render() {
         let checkbox = null;
         if (this.props.completed) {
-            checkbox = <CheckBox onClick={ this.toggleComplete } style={style.completedStyle}></CheckBox>
+            checkbox = <IconButton iconStyle={style.completedStyle} onClick={ this.toggleComplete }><CheckBox /></IconButton>
         } else {
-            checkbox =  <CheckBoxOutline onClick={ this.toggleComplete } style={style.completedStyle}></CheckBoxOutline>
+            checkbox =  <IconButton iconStyle={style.completedStyle} onClick={ this.toggleComplete } ><CheckBoxOutline /></IconButton>
         }
         return (
             <TableRow>
                 <TableRowColumn>
-                    <ModeEdit style={ style.updateLink } onClick={ this.updateTodo }></ModeEdit>
-                    <Delete style={ style.deleteLink } onClick={ this.deleteTodo }></Delete>
+                    <IconButton iconStyle={ style.updateLink } onClick={ this.updateTodo }>
+                        <ModeEdit />
+                    </IconButton>
+                    <IconButton iconStyle={ style.deleteLink } onClick={ this.deleteTodo }>
+                        <Delete />
+                    </IconButton>
                     <span style={ style.toDoStyle }>{ this.props.title }</span>
                     { (this.state.toBeUpdated)
                         ? (<form onSubmit={ this.handleTodoUpdate }>

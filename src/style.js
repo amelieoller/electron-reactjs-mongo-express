@@ -39,7 +39,9 @@ const style = {
         flex:'2'
     },
     todoFormTextField: {
-        minWidth:'380px'
+        minWidth:'380px',
+        fontFamily: 'Indie Flower',
+        fontSize: '1.5em'
     },
     todoFormButton: {
         marginLeft:'15px'
@@ -64,18 +66,10 @@ const style = {
         border:'none'
     },
     deleteLink: {
-        hover: {
-            color: 'green'
-        },
-        paddingTop: '10px',
         color: '#777',
         fontSize:'8px'
     },
     updateLink: {
-        hover: {
-            color: 'green'
-        },
-        paddingTop: '10px',
         color: '#777',
         fontSize:'8px'
     },
