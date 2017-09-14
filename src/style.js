@@ -66,6 +66,9 @@ const style = {
         border:'none'
     },
     updateLink: {
+        hover: {
+            color: 'green'
+        },
         textDecoration:'none',
         paddingRight:'15px',
         fontSize:'.7rem'

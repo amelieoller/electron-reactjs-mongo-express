@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import style from '../style';
 import CheckBox from 'react-material-icons/icons/toggle/check-box';
 import CheckBoxOutline from 'react-material-icons/icons/toggle/check-box-outline-blank';
+import ModeEdit from 'react-material-icons/icons/editor/mode-edit';
 import {
     TableRow,
     TableRowColumn,
@@ -82,7 +83,7 @@ class Todo extends Component {
 
                 </TableRowColumn>
                 <TableRowColumn>
-                    <a style={ style.updateLink } href='#' onClick={ this.updateTodo }>update</a>
+                    <ModeEdit style={ style.updateLink } onClick={ this.updateTodo }></ModeEdit>
                     <a style={ style.markCompleteLink } href='#' onClick={ this.markComplete }>complete</a>
                     <a style={ style.deleteLink } href='#' onClick={ this.deleteTodo }>delete</a>
                     { (this.state.toBeUpdated)
