@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import TodoList from './TodoList.component';
-import TodoForm from './ToDoForm.component';
+import TodoForm from './TodoForm.component';
 import style from '../style';
 import Paper from 'material-ui/Paper';
 

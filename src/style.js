@@ -83,7 +83,16 @@ const style = {
         fontSize: '2em',
         color: '#00BCD4',
         marginLeft: '10px',
-        marginTop: '-10px'
+        marginTop: '-10px',
+        textDecoration: 'none'
+    },
+    completedToDoStyle: {
+        fontFamily: 'Indie Flower',
+        fontSize: '2em',
+        color: '#00BCD4',
+        marginLeft: '10px',
+        marginTop: '-10px',
+        textDecoration: 'line-through'
     },
     completedStyle: {
         color: '#777',

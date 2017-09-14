@@ -75,7 +75,7 @@ class Todo extends Component {
 
     render() {
         let checkbox = null;
-        if (this.props.completed) {
+        if (this.state.completed) {
             checkbox = <IconButton iconStyle={style.completedStyle} onClick={ this.toggleComplete }><CheckBox /></IconButton>
         } else {
             checkbox =  <IconButton iconStyle={style.completedStyle} onClick={ this.toggleComplete } ><CheckBoxOutline /></IconButton>
@@ -89,7 +89,7 @@ class Todo extends Component {
                     <IconButton iconStyle={ style.deleteLink } onClick={ this.deleteTodo }>
                         <Delete />
                     </IconButton>
-                    <span style={ style.toDoStyle }>{ this.props.title }</span>
+                    <span style={ this.state.completed ? style.completedToDoStyle : style.toDoStyle }>{ this.props.title }</span>
                     { (this.state.toBeUpdated)
                         ? (<form onSubmit={ this.handleTodoUpdate }>
                             <input
