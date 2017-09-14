@@ -26,7 +26,7 @@ class TodoList extends Component {
             )
         })
         return (
-            <Table>
+            <Table style={style.todoTable}>
                 <TableBody>
                     { todoNodes }
                 </TableBody>

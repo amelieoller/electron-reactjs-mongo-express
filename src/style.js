@@ -3,9 +3,9 @@ const style = {
     body: {
         fontFamily: 'Roboto'
     },
-    todoBoard: {
+    todoTable: {
         width:'80vw',
-        margin:'0 auto',
+        margin:'5px 0px 5px 20px',
         fontFamily:'Helvetica, sans-serif'
     },
     title: {
@@ -25,9 +25,9 @@ const style = {
         fontSize:'.85rem'
     },
     todoForm: {
-        margin:'10px',
-        display:'flex',
-        flexFlow:'row wrap',
+        marginTop: '50px',
+        marginLeft:'50px',
+        paddingBottom: '50px',
         justifyContent:'space-between'
     },
     todoFormTitle: {
@@ -38,13 +38,11 @@ const style = {
         height:'40px',
         flex:'2'
     },
-    todoFormDescription: {
-        flex:'4',
-        minWidth:'400px',
-        margin:'3px',
-        padding:'0 10px',
-        height:'40px',
-        borderRadius:'3px'
+    todoFormTextField: {
+        minWidth:'380px'
+    },
+    todoFormButton: {
+        marginLeft:'15px'
     },
     todoFormCompleted: {
         margin:'3px',
@@ -65,24 +63,32 @@ const style = {
         letterSpacing:'.055rem',
         border:'none'
     },
+    deleteLink: {
+        hover: {
+            color: 'green'
+        },
+        paddingTop: '10px',
+        color: '#777',
+        fontSize:'8px'
+    },
     updateLink: {
         hover: {
             color: 'green'
         },
-        textDecoration:'none',
-        paddingRight:'15px',
-        fontSize:'.7rem'
+        paddingTop: '10px',
+        color: '#777',
+        fontSize:'8px'
     },
-    markCompleteLink: {
-        textDecoration:'none',
-        paddingRight:'15px',
-        fontSize:'.7rem'
+    toDoStyle: {
+        fontFamily: 'Indie Flower',
+        fontSize: '2em',
+        color: '#00BCD4',
+        marginLeft: '10px',
+        marginTop: '-10px'
     },
-    deleteLink: {
-        textDecoration:'none',
-        paddingRight:'15px',
-        fontSize:'.7rem',
-        color:'red'
+    completedStyle: {
+        color: '#777',
+        textAlign: 'left'
     }
 }
 module.exports = style;

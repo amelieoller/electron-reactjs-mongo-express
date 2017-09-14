@@ -111,7 +111,7 @@ router.route('/todos/:todo_id')
             //setting the new title, completed to whatever was changed. If
             //nothing was changed we will not alter the field.
             (req.body.title) ? todo.title = req.body.title : null;
-            (req.body.completed) ? todo.completed = req.body.completed : completed;
+            (req.body.completed !== undefined) ? todo.completed = req.body.completed : false;
             //save todo
             todo.save(function(err) {
                 if (err)

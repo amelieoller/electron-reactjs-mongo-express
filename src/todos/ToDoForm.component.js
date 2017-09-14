@@ -38,9 +38,10 @@ class TodoForm extends Component {
                         id="text-field-default"
                         placeholder='To Do…'
                         value={ this.state.title }
+                        style={ style.todoFormTextField }
                         onChange={ this.handleTitleChange }
                     />
-                    <RaisedButton label="Add" type='submit' />
+                    <RaisedButton label="Add" primary={true}  style={ style.todoFormButton } type='submit' />
 
                 </form>
         )
