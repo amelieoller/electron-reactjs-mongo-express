@@ -10,6 +10,10 @@ import {
     TableHeaderColumn
 } from 'material-ui/Table';
 
+import TodoContainer from '../containers/TodoContainer';
+
+
+
 
 class TodoList extends Component {
     componentWillMount() {
@@ -18,14 +22,14 @@ class TodoList extends Component {
     renderTodos(todos) {
         let todoNodes = todos.map(todo => {
             return (
-                <Todo
+                <TodoContainer
                     title={ todo.title }
                     completed={ todo.completed }
                     uniqueID={ todo['_id'] }
                     onTodoDelete={ this.props.onTodoDelete }
                     onTodoUpdate={ this.props.onTodoUpdate }
                     key={ todo['_id'] }>
-                </Todo>
+                </TodoContainer>
             )
         })
         return (

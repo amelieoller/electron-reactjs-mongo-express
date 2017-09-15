@@ -123,11 +123,12 @@ export function resetActiveTodo() {
 }
 
 
-export function deleteTodo(id, tokenFromStorage) {
-    const request = axios({
-        method: 'delete',
-        url:'${ROOT_URL}/todos/${id}',
-    });
+export function deleteTodo(id) {
+    // const request = axios({
+    //     method: 'delete',
+    //     url:'${ROOT_URL}/todos/${id}',
+    // });
+    const request = axios.delete('http://localhost:8080/api/todos/' + id)
 
     return {
         type: DELETE_TODO,

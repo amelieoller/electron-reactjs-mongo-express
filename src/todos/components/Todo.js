@@ -10,6 +10,7 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
+import { deleteTodo, deleteTodoFailure, fetchTodos, fetchTodosSuccess} from "../actions/index";
 
 class Todo extends Component {
     constructor(props) {
@@ -56,9 +57,9 @@ class Todo extends Component {
         })
     }
     deleteTodo(e) {
-        e.preventDefault();
         let id = this.props.uniqueID;
-        this.props.onTodoDelete(id);
+        console.log('deleting todo for: ', this.state);
+        this.props.deleteTodo(id);
     }
     handleTitleChange(e) {
         this.setState({ title: e.target.value });
@@ -107,4 +108,5 @@ class Todo extends Component {
         )
     }
 }
+
 export default Todo;
