@@ -13,7 +13,6 @@ import {
 
 class TodoList extends Component {
     componentWillMount() {
-        console.log('this.props =', this.props);
         this.props.fetchTodos();
     }
     renderTodos(todos) {

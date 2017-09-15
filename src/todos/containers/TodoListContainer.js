@@ -4,14 +4,12 @@ import TodoList from '../components/TodoList';
 
 
 const mapStateToProps = (state) => {
-    console.log('*** mapStateToProps *** state =', state);
     return {
         todoList: state.todos.todoList
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('*** mapDispatchToProps ***');
     return {
         fetchTodos: () => {
             dispatch(fetchTodos()).then((response) => {

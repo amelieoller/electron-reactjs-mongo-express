@@ -34,7 +34,6 @@ class Todo extends Component {
     }
     toggleComplete(e) {
         e.preventDefault();
-        console.log('setting complete to: ', !this.state.completed);
         let id = this.props.uniqueID;
         let title = (this.state.title) ? this.state.title : null;
         let completed = !this.state.completed ;
@@ -46,11 +45,9 @@ class Todo extends Component {
     handleTodoUpdate(e) {
         e.preventDefault();
         let id = this.props.uniqueID;
-        console.log('handling update, state=', this.state);
         let title = (this.state.title) ? this.state.title : null;
         let completed = (this.state.completed) ? this.state.completed : false;
         let todo = { title: title, completed: completed};
-        console.log('this.props =', this.props);
         this.props.onTodoUpdate(id, todo);
         this.setState({
             toBeUpdated: !this.state.toBeUpdated,
@@ -62,14 +59,11 @@ class Todo extends Component {
         e.preventDefault();
         let id = this.props.uniqueID;
         this.props.onTodoDelete(id);
-        console.log('to do has been deleted');
     }
     handleTitleChange(e) {
-        console.log('setting title: ', e.target.value );
         this.setState({ title: e.target.value });
     }
     handleStatusChange(e) {
-        console.log('setting completed: ', e.target.checked );
         this.setState({ completed: e.target.checked });
     }
 

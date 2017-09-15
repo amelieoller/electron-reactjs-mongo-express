@@ -44,6 +44,7 @@ const style = {
         flex:'2'
     },
     todoFormTextField: {
+        marginLeft:' 25px',
         minWidth:'380px',
         fontFamily: 'Indie Flower',
         fontSize: '1.5em'

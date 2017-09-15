@@ -37,6 +37,7 @@
     "react-router": "^4.2.0",
     "react-scripts": "1.0.13",
     "redux": "^3.7.2",
+    "redux-form": "^7.0.4",
     "redux-promise": "^0.5.3"
   },
   "devDependencies": {
@@ -54,6 +55,7 @@
     "jest": "^21.0.2",
     "node-sass": "^4.5.3",
     "react-test-renderer": "^15.6.1",
+    "redux-logger": "^3.0.6",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.6",

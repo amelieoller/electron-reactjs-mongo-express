@@ -97,7 +97,7 @@ router.route('/todos')
         todo.save(function(err) {
             if (err)
                 res.send(err);
-            res.json({ message: 'To Do successfully added!' });
+            res.json(todo);
         });
     });
 //Adding a route to a specific todos based on the database ID

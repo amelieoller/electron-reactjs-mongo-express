@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import promise from 'redux-promise';
 import reducer from '../reducers';
+import { createLogger } from 'redux-logger';
 
-
+const logger = new createLogger();
 export default function configureStore(initialState) {
     const finalCreateStore = compose(
-        applyMiddleware(promise),
+        applyMiddleware(promise, logger),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )(createStore);
 

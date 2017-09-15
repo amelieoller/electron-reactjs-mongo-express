@@ -26,12 +26,7 @@ export const RESET_DELETED_TODO = 'RESET_DELETED_TODO';
 
 const ROOT_URL = 'http://localhost:8080/api';
 export function fetchTodos() {
-    const request = axios({
-        method: 'get',
-        url: `${ROOT_URL}/todos`,
-        // headers: []
-    });
-
+    const request = axios.get('http://localhost:8080/api/todos/');
     return {
         type: FETCH_TODOS,
         payload: request
@@ -59,12 +54,8 @@ export function resetTodoFields() {
 }
 
 
-export function createTodo(props, tokenFromStorage) {
-    const request = axios({
-        method: 'post',
-        data: props,
-        url: `${ROOT_URL}/todos`
-    });
+export function createTodo(newTodo) {
+    const request = axios.post('http://localhost:8080/api/todos', newTodo);
 
     return {
         type: CREATE_TODO,
@@ -72,7 +63,8 @@ export function createTodo(props, tokenFromStorage) {
     };
 }
 
-export function createTodosuccess(newTodo) {
+export function createTodoSuccess(newTodo) {
+    console.log('create todo success: ', newTodo);
     return {
         type: CREATE_TODO_SUCCESS,
         payload: newTodo
@@ -101,7 +93,7 @@ export function resetDeletedTodo() {
 
 
 export function fetchTodo(id) {
-    const request = axios.get(`${ROOT_URL}/todos/${id}`);
+    const request = axios.get('http://localhost:8080/api/todos/' + id);
 
     return {
         type: FETCH_TODO,
@@ -134,11 +126,9 @@ export function resetActiveTodo() {
 export function deleteTodo(id, tokenFromStorage) {
     const request = axios({
         method: 'delete',
-        url: `${ROOT_URL}/todos/${id}`,
-        // headers: {
-        //     'Authorization': `Bearer ${tokenFromStorage}`
-        // }
+        url:'${ROOT_URL}/todos/${id}',
     });
+
     return {
         type: DELETE_TODO,
         payload: request
