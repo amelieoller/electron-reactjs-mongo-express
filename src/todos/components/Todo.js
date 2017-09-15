@@ -10,7 +10,6 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
-import { deleteTodo, deleteTodoFailure, fetchTodos, fetchTodosSuccess} from "../actions/index";
 
 class Todo extends Component {
     constructor(props) {
@@ -22,16 +21,8 @@ class Todo extends Component {
         };
         //binding all our functions to this class
         this.deleteTodo = this.deleteTodo.bind(this);
-        this.updateTodo = this.updateTodo.bind(this);
         this.toggleComplete = this.toggleComplete.bind(this);
-        this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleStatusChange = this.handleStatusChange.bind(this);
-        this.handleTodoUpdate = this.handleTodoUpdate.bind(this);
-    }
-    updateTodo(e) {
-        e.preventDefault();
-        //brings up the update field when we click on the update link.
-        this.setState({ toBeUpdated: !this.state.toBeUpdated });
     }
     toggleComplete(e) {
         e.preventDefault();
@@ -40,29 +31,13 @@ class Todo extends Component {
         let completed = !this.state.completed ;
         this.setState({ completed: !this.state.completed });
         let todo = { title: title, completed: completed};
-        this.props.onTodoUpdate(id, todo);
-        this.setState(todo);
-    }
-    handleTodoUpdate(e) {
-        e.preventDefault();
-        let id = this.props.uniqueID;
-        let title = (this.state.title) ? this.state.title : null;
-        let completed = (this.state.completed) ? this.state.completed : false;
-        let todo = { title: title, completed: completed};
-        this.props.onTodoUpdate(id, todo);
-        this.setState({
-            toBeUpdated: !this.state.toBeUpdated,
-            title: this.state.title,
-            completed: this.state.completed
-        })
+        this.props.updateTodo(id, todo);
     }
     deleteTodo(e) {
+        e.preventDefault();
         let id = this.props.uniqueID;
         console.log('deleting todo for: ', this.state);
         this.props.deleteTodo(id);
-    }
-    handleTitleChange(e) {
-        this.setState({ title: e.target.value });
     }
     handleStatusChange(e) {
         this.setState({ completed: e.target.checked });
@@ -78,27 +53,12 @@ class Todo extends Component {
         return (
             <TableRow>
                 <TableRowColumn>
-                    <IconButton iconStyle={ style.updateLink } onClick={ this.updateTodo }>
-                        <ModeEdit />
-                    </IconButton>
                     <IconButton iconStyle={ style.deleteLink } onClick={ this.deleteTodo }>
                         <Delete />
                     </IconButton>
-                    <span style={ this.state.completed ? style.completedToDoStyle : style.toDoStyle }>{ this.props.title }</span>
-                    { (this.state.toBeUpdated)
-                        ? (<form onSubmit={ this.handleTodoUpdate }>
-                            <input
-                                type='text'
-                                placeholder='Update title…'
-                                style={ style.todoFormTitle }
-                                value={ this.state.title }
-                                onChange= { this.handleTitleChange } />
-                            <input
-                                type='submit'
-                                style={ style.todoFormPost }
-                                value='Update' />
-                        </form>)
-                        : null }
+                    <span style={ this.state.completed ? style.completedToDoStyle : style.toDoStyle }>
+                        { this.props.title }
+                    </span>
                 </TableRowColumn>
                 <TableRowColumn>
                     {checkbox}

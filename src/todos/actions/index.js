@@ -12,6 +12,11 @@ export const CREATE_TODO_SUCCESS = 'CREATE_TODO_SUCCESS';
 export const CREATE_TODO_FAILURE = 'CREATE_TODO_FAILURE';
 export const RESET_NEW_TODO = 'RESET_NEW_TODO';
 
+//Update to do
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const UPDATE_TODO_SUCCESS = 'CREATE_TODO_SUCCESS';
+export const UPDATE_TODO_FAILURE = 'CREATE_TODO_FAILURE';
+
 //Fetch to do
 export const FETCH_TODO = 'FETCH_TODO';
 export const FETCH_TODO_SUCCESS = 'FETCH_TODO_SUCCESS';
@@ -50,9 +55,8 @@ export function fetchTodosFailure(error) {
 export function resetTodoFields() {
     return {
         type: RESET_TODO_FIELDS
-    }
+    };
 }
-
 
 export function createTodo(newTodo) {
     const request = axios.post('http://localhost:8080/api/todos', newTodo);
@@ -84,11 +88,33 @@ export function resetNewTodo() {
     }
 }
 
+export function updateTodo(id, todo) {
+    const request = axios.put('http://localhost:8080/api/todos/' + id, todo);
+    return {
+        type: UPDATE_TODO,
+        payload: request
+    };
+}
+
+export function updateTodoSuccess(todo) {
+    console.log('update todo success: ', todo);
+    return {
+        type: UPDATE_TODO_SUCCESS,
+        payload: todo
+    };
+}
+
+export function updateTodoFailure(error) {
+    return {
+        type: UPDATE_TODO_FAILURE,
+        payload: error
+    };
+}
 
 export function resetDeletedTodo() {
     return {
         type: RESET_DELETED_TODO
-    }
+    };
 }
 
 
@@ -124,10 +150,6 @@ export function resetActiveTodo() {
 
 
 export function deleteTodo(id) {
-    // const request = axios({
-    //     method: 'delete',
-    //     url:'${ROOT_URL}/todos/${id}',
-    // });
     const request = axios.delete('http://localhost:8080/api/todos/' + id)
 
     return {

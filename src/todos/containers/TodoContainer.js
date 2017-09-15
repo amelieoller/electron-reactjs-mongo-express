@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { deleteTodo, fetchTodos, fetchTodosSuccess, fetchTodosFailure } from '../actions/index';
+import { deleteTodo, deleteTodoFailure, updateTodo, updateTodoFailure, fetchTodos, fetchTodosSuccess, fetchTodosFailure } from '../actions/index';
 import Todo from "../components/Todo";
 
 
@@ -31,6 +31,19 @@ const mapDispatchToProps = (dispatch) => {
                 } else {
                     console.log('Delete failure');
                     dispatch(deleteTodoFailure(response.payload.data))
+                }
+            });
+        },
+        updateTodo: (id, todo) => {
+            dispatch(updateTodo(id, todo)).then((response) => {
+                if (!response.error) {
+                    console.log('Update successful');
+                    dispatch(fetchTodos()).then((response) => {
+                        dispatch(fetchTodosSuccess(response.payload.data))
+                    });
+                } else {
+                    console.log('Update failure');
+                    dispatch(updateTodoFailure(response.payload.data))
                 }
             });
         }
