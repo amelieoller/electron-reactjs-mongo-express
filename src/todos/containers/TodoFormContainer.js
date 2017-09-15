@@ -1,5 +1,4 @@
 import React from 'react'
-import TodoForm from '../components/TodoForm.js';
 import { connect } from 'react-redux'
 import { createTodo, createTodoSuccess, fetchTodos, fetchTodosSuccess, createTodoFailure, resetNewTodo} from '../actions/index';
 import style from '../../style';

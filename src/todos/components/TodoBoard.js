@@ -37,7 +37,11 @@ class TodoBoard extends Component {
             <Paper zDepth={2}  style={ style.todoBoard }>
                 <div>
                     <h2 style={ style.title }>To Do:</h2>
-                    <TodoListContainer />
+                    <TodoListContainer
+                        onTodoDelete={ this.handleTodoDelete }
+                        onTodoUpdate={ this.handleTodoUpdate }
+                        data={ this.state.data }
+                    />
                     <TodoFormContainer />
                 </div>
             </Paper>
