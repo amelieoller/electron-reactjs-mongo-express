@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import style from '../../style';
 import CheckBox from 'react-material-icons/icons/toggle/check-box';
 import CheckBoxOutline from 'react-material-icons/icons/toggle/check-box-outline-blank';
-import ModeEdit from 'react-material-icons/icons/editor/mode-edit';
 import Delete from 'react-material-icons/icons/action/delete';
 import IconButton from 'material-ui/IconButton';
 import {
@@ -22,7 +21,6 @@ class Todo extends Component {
         //binding all our functions to this class
         this.deleteTodo = this.deleteTodo.bind(this);
         this.toggleComplete = this.toggleComplete.bind(this);
-        this.handleStatusChange = this.handleStatusChange.bind(this);
     }
     toggleComplete(e) {
         e.preventDefault();
@@ -38,9 +36,6 @@ class Todo extends Component {
         let id = this.props.uniqueID;
         console.log('deleting todo for: ', this.state);
         this.props.deleteTodo(id);
-    }
-    handleStatusChange(e) {
-        this.setState({ completed: e.target.checked });
     }
 
     render() {
