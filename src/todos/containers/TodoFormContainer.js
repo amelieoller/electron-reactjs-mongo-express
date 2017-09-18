@@ -11,6 +11,7 @@ let TodoFormContainer = ({ dispatch }) => {
     return (
         <div>
             <form
+                style={style.todoForm}
                 onSubmit={e => {
                     e.preventDefault()
                     if (!input.input.value.trim()) {

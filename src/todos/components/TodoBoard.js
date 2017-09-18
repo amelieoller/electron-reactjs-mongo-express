@@ -19,7 +19,7 @@ class TodoBoard extends Component {
                     <TodoListContainer
                         data={ this.state.data }
                     />
-                    <TodoFormContainer />
+                    <TodoFormContainer style={ style.todoForm } />
                 </div>
             </Paper>
         )

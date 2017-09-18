@@ -9,15 +9,20 @@ import {
     TableRow,
     TableHeaderColumn
 } from 'material-ui/Table';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import TodoContainer from '../containers/TodoContainer';
-
-
 
 
 class TodoList extends Component {
     componentWillMount() {
         this.props.fetchTodos();
+    }
+    onCellHover(rowNumber, columnId) {
+        console.log('on cell hover: ', rowNumber, columnId);
+    }
+    onCellHoverExit() {
+
     }
     renderTodos(todos) {
         let todoNodes = todos.map(todo => {
@@ -33,9 +38,13 @@ class TodoList extends Component {
             )
         })
         return (
-            <Table style={style.todoTable}>
+            <Table
+                style={style.todoTable}
+                onCellHover={this.onCellHover}
+                onCellHoverExit={this.onCellHoverExit}
+            >
                 <TableBody>
-                    { todoNodes }
+                            { todoNodes }
                 </TableBody>
             </Table>
         )

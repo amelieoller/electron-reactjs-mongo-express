@@ -35,6 +35,12 @@ const style = {
         paddingBottom: '50px',
         justifyContent:'space-between'
     },
+    TodoContainer: {
+        marginTop: '50px',
+        marginLeft:'50px',
+        paddingBottom: '50px',
+        justifyContent:'space-between'
+    },
     todoFormTitle: {
         minWidth:'150px',
         margin:'3px',
@@ -98,6 +104,20 @@ const style = {
     completedStyle: {
         color: '#777',
         textAlign: 'left'
+    },
+    exampleEnter: {
+        opacity: "0.01"
+    },
+    exampleEnterActive: {
+        opacity: '1',
+        transition: 'opacity 500ms ease-in'
+    },
+    exampleLeave: {
+        opacity: '1'
+    },
+    exampleLeaveActive: {
+        opacity: '0.01',
+        transition: 'opacity 300ms ease-in'
     }
 }
 module.exports = style;
