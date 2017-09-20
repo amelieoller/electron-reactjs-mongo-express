@@ -35,6 +35,12 @@ const style = {
         paddingBottom: '50px',
         justifyContent:'space-between'
     },
+    TodoContainer: {
+        marginTop: '50px',
+        marginLeft:'50px',
+        paddingBottom: '50px',
+        justifyContent:'space-between'
+    },
     todoFormTitle: {
         minWidth:'150px',
         margin:'3px',
@@ -44,6 +50,7 @@ const style = {
         flex:'2'
     },
     todoFormTextField: {
+        marginLeft:' 25px',
         minWidth:'380px',
         fontFamily: 'Indie Flower',
         fontSize: '1.5em'
@@ -83,11 +90,34 @@ const style = {
         fontSize: '2em',
         color: '#00BCD4',
         marginLeft: '10px',
-        marginTop: '-10px'
+        marginTop: '-10px',
+        textDecoration: 'none'
+    },
+    completedToDoStyle: {
+        fontFamily: 'Indie Flower',
+        fontSize: '2em',
+        color: '#00BCD4',
+        marginLeft: '10px',
+        marginTop: '-10px',
+        textDecoration: 'line-through'
     },
     completedStyle: {
         color: '#777',
         textAlign: 'left'
+    },
+    exampleEnter: {
+        opacity: "0.01"
+    },
+    exampleEnterActive: {
+        opacity: '1',
+        transition: 'opacity 500ms ease-in'
+    },
+    exampleLeave: {
+        opacity: '1'
+    },
+    exampleLeaveActive: {
+        opacity: '0.01',
+        transition: 'opacity 300ms ease-in'
     }
 }
 module.exports = style;
