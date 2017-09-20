@@ -35,7 +35,6 @@ class Todo extends Component {
     deleteTodo(e) {
         e.preventDefault();
         let id = this.props.uniqueID;
-        console.log('deleting todo for: ', this.state);
         this.props.deleteTodo(id);
     }
 

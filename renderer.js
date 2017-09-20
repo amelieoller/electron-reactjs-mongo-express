@@ -6,8 +6,7 @@ import App from "./src/todos/components/App";
 const React = require('react');
 const ReactDOM = require('react-dom');
 import { Provider } from 'react-redux';
-import configureStore from './src/todos/store/configureStore.js';
-
+import configureStore from './src/todos/store/configureStore.dev.js';
 
 const store = configureStore();
 
