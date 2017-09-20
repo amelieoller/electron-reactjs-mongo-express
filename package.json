@@ -10,7 +10,9 @@
     "bundle": "webpack",
     "watch": "NODE_ENV=DEV nodemon server.js",
     "start:prod": "webpack && electron .",
-    "test": "karma start"
+    "test-karma": "karma start",
+    "test-jestmon": "react-scripts test --env=jsdom",
+    "test-jest": "jest"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -26,6 +28,7 @@
     "express": "^4.15.4",
     "foreman": "^2.0.0",
     "install": "^0.10.1",
+    "jest-cli": "^21.1.0",
     "marked": "^0.3.6",
     "material-ui": "^0.19.1",
     "mongoose": "^4.11.11",
@@ -55,10 +58,11 @@
     "css-loader": "^0.28.7",
     "d3": "^4.10.2",
     "electron": "~1.6.2",
+    "enzyme": "^2.9.1",
     "expect": "^21.1.0",
     "jasmine": "^2.8.0",
     "jasmine-core": "^2.8.0",
-    "jest": "^21.0.2",
+    "jest": "^21.1.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "^1.0.1",
@@ -75,5 +79,13 @@
     "webpack": "^3.6.0",
     "webpack-dev-middleware-webpack-2": "^1.5.1",
     "webpack-hot-middleware": "^2.19.1"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/registerServiceWorker.js"
+    ]
   }
 }

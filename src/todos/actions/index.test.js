@@ -11,4 +11,11 @@ describe('Actions', () => {
         };
         expect(actions.fetchTodosFailure(err).type).toEqual(expectedAction.type);
     });
+
+    xit('creates an action to fetch the todos', () => {
+        const balance = 0;
+        const expectedAction =  { type: constants.SET_BALANCE, balance }
+
+        expect(actions.setBalance(balance)).toEqual(expectedAction);
+    })
 });
