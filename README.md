@@ -5,7 +5,7 @@
 This is an  Electron application written in ReactJS that implements a ToDo list that is stored in a mongoDB.
 
 
-## To Use
+## Installation
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -19,11 +19,16 @@ $ cd electron-reactjs-mongo-express
 $ npm install
 # Start up MongoDB
 $ mongod
-# Run the app
-$ npm run start
+
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+## To Use
+
+# Run the app
+$ npm run start
+
+# Run the tests
+$ npm run test
 
 ## License
 
