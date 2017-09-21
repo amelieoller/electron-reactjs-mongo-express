@@ -1,6 +1,7 @@
 //TodoList.js
 import React, { Component } from 'react';
 import Todo from './Todo';
+import { shallow } from 'enzyme'
 import style from '../../style';
 import {
     Table,

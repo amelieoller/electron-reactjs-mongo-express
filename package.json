@@ -30,6 +30,7 @@
     "css-loader": "^0.28.7",
     "d3": "^4.10.2",
     "electron": "~1.6.2",
+    "enzyme": "^2.9.1",
     "expect": "^21.1.0",
     "jasmine": "^2.8.0",
     "jasmine-core": "^2.8.0",
