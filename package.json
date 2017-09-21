@@ -12,7 +12,7 @@
     "start:prod": "webpack && electron .",
     "test-karma": "karma start",
     "test-jestmon": "react-scripts test --env=jsdom",
-    "test-jest": "jest"
+    "test-jest": "jest --watchAll"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
